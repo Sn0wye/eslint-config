@@ -28,6 +28,7 @@ module.exports = {
         singleQuote: true,
         arrowParens: 'always',
         semi: true,
+        jsxSingleQuote: true,
       },
     ],
     'react/react-in-jsx-scope': 'off',
