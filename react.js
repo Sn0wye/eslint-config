@@ -9,6 +9,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'standard',
     'plugin:prettier/recommended',
+    'prettier'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -31,6 +32,9 @@ module.exports = {
         jsxSingleQuote: true,
       },
     ],
+    "comma-dangle": ["error", {
+      "imports": "only-multiline",
+    }],
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'jsx-a11y/alt-text': [
