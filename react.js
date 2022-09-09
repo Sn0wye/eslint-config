@@ -21,20 +21,28 @@ module.exports = {
   },
   plugins: ['react', 'jsx-a11y', '@typescript-eslint'],
   rules: {
+      'comma-dangle': [
+      'error',
+      {
+        'objects': 'only-multiline',
+        'imports': 'only-multiline',
+        'arrays': 'only-multiline',
+        'exports': 'only-multiline',
+        'functions': 'only-multiline'
+      }
+    ],
     'prettier/prettier': [
       'error',
       {
-        printWidth: 80,
-        tabWidth: 2,
-        singleQuote: true,
-        arrowParens: 'always',
-        semi: true,
-        jsxSingleQuote: true,
-      },
+        'printWidth': 80,
+        'tabWidth': 2,
+        'singleQuote': true,
+        'arrowParens': 'always',
+        'semi': true,
+        'jsxSingleQuote': true,
+        'trailliingComma': 'es5'
+      }
     ],
-    "comma-dangle": ["error", {
-      "imports": "only-multiline",
-    }],
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'jsx-a11y/alt-text': [
