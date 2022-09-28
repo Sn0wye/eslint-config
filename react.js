@@ -9,7 +9,9 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'standard',
     'plugin:prettier/recommended',
-    'prettier'
+    'prettier',
+    "plugin:import/warnings",
+    "plugin:import/errors"
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,18 +21,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'jsx-a11y', '@typescript-eslint'],
+  plugins: ['react', 'jsx-a11y', '@typescript-eslint', 'prettier', 'eslint-plugin-import-helpers'],
   rules: {
-      'comma-dangle': [
-      'error',
-      {
-        'objects': 'only-multiline',
-        'imports': 'only-multiline',
-        'arrays': 'only-multiline',
-        'exports': 'only-multiline',
-        'functions': 'only-multiline'
-      }
-    ],
+    'comma-dangle': ['error', 'only-multiline'],
     'prettier/prettier': [
       'error',
       {
@@ -43,6 +36,9 @@ module.exports = {
         'trailliingComma': 'es5'
       }
     ],
+    "space-before-function-paren": "off",
+    "camelcase": "warn",
+    "no-use-before-define": "off",
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'jsx-a11y/alt-text': [
@@ -57,6 +53,19 @@ module.exports = {
     'jsx-a11y/aria-unsupported-elements': 'warn',
     'jsx-a11y/role-has-required-aria-props': 'warn',
     'jsx-a11y/role-supports-aria-props': 'warn',
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "module",
+          "/^@shared/",
+          ["parent", "sibling", "index"]
+        ],
+        "alphabetize": { "order": "asc", "ignoreCase": true }
+      }
+    ],
+    "import/prefer-default-export": "off",
   },
   settings: {
     react: {
