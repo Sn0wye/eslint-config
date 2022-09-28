@@ -10,8 +10,6 @@ module.exports = {
     'standard',
     'plugin:prettier/recommended',
     'prettier',
-    "plugin:import/warnings",
-    "plugin:import/errors"
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -23,22 +21,31 @@ module.exports = {
   },
   plugins: ['react', 'jsx-a11y', '@typescript-eslint', 'prettier', 'eslint-plugin-import-helpers'],
   rules: {
-    'comma-dangle': ['error', 'only-multiline'],
+    'comma-dangle': ['error', {
+      'arrays': 'only-multiline',
+      'objects': 'only-multiline',
+      'imports': 'only-multiline',
+      'exports': 'only-multiline',
+      'functions': 'never'
+  }],
     'prettier/prettier': [
       'error',
       {
-        'printWidth': 80,
-        'tabWidth': 2,
-        'singleQuote': true,
-        'arrowParens': 'always',
-        'semi': true,
-        'jsxSingleQuote': true,
-        'trailliingComma': 'es5'
+        "semi": true,
+        "tabWidth": 2,
+        "singleQuote": true,
+        "jsxSingleQuote": true,
+        "arrowParens": "avoid",
+        "endOfLine": "auto",
+        "bracketSpacing": true,
+        "printWidth": 80,
+        "trailingComma": "none",
+        "quoteProps": "preserve",
       }
     ],
-    "space-before-function-paren": "off",
-    "camelcase": "warn",
-    "no-use-before-define": "off",
+    'space-before-function-paren': 'off',
+    'camelcase': 'warn',
+    'no-use-before-define': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
     'jsx-a11y/alt-text': [
@@ -53,19 +60,19 @@ module.exports = {
     'jsx-a11y/aria-unsupported-elements': 'warn',
     'jsx-a11y/role-has-required-aria-props': 'warn',
     'jsx-a11y/role-supports-aria-props': 'warn',
-    "import-helpers/order-imports": [
-      "warn",
+    'import-helpers/order-imports': [
+      'warn',
       {
-        "newlinesBetween": "always",
-        "groups": [
-          "module",
-          "/^@shared/",
-          ["parent", "sibling", "index"]
+        'newlinesBetween': 'always',
+        'groups': [
+          'module',
+          '/^@shared/',
+          ['parent', 'sibling', 'index']
         ],
-        "alphabetize": { "order": "asc", "ignoreCase": true }
+        'alphabetize': { 'order': 'asc', 'ignoreCase': true }
       }
     ],
-    "import/prefer-default-export": "off",
+    'import/prefer-default-export': 'off',
   },
   settings: {
     react: {
@@ -74,5 +81,13 @@ module.exports = {
     'import/parsers': {
       [require.resolve('@typescript-eslint/parser')]: ['.ts', '.tsx', '.d.ts'],
     },
+    'import/resolver': {
+      'node': {
+        'extensions': [
+          '.js',
+          '.jsx'
+        ]
+      }
+    }
   },
 };
