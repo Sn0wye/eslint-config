@@ -10,7 +10,6 @@ module.exports = {
     "standard",
     "plugin:prettier/recommended",
     "prettier",
-    "next/core-web-vitals",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
