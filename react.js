@@ -10,6 +10,7 @@ module.exports = {
     "standard",
     "plugin:prettier/recommended",
     "prettier",
+    "plugin:tailwindcss/recommended"
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -25,6 +26,7 @@ module.exports = {
     "@typescript-eslint",
     "prettier",
     "eslint-plugin-import-helpers",
+    "tailwindcss"
   ],
   rules: {
     "comma-dangle": [
