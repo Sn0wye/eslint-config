@@ -14,7 +14,7 @@
 pnpm i eslint @sn0wye/eslint-config -D
 ```
 
-2. Create a `.eslintrc.json` or file extending the config:
+2. Create a `.eslintrc.cjs` or file extending the config:
 ```ts
 const path = require('path');
 
